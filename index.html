@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>简易笔记墙</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>简易笔记墙</h1>
+      <p class="desc">发布图片或笔记，所有访客可见。</p>
+
+      <section class="card">
+        <h2>发布笔记</h2>
+        <form id="note-form">
+          <label for="content">笔记内容（可选）</label>
+          <textarea
+            id="content"
+            name="content"
+            rows="4"
+            maxlength="500"
+            placeholder="写点什么..."
+          ></textarea>
+
+          <label for="image">图片（可选）</label>
+          <input id="image" name="image" type="file" accept="image/*" />
+
+          <p class="hint">至少填写文字或上传图片其中一项。</p>
+
+          <button id="submit-btn" type="submit">发布</button>
+          <p id="status" class="status"></p>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>最新笔记</h2>
+        <div id="notes-list" class="notes-list"></div>
+      </section>
+    </main>
+
+    <script>
+      // 部署前替换成你自己的 Supabase 项目信息
+      window.APP_CONFIG = {
+        SUPABASE_URL: "https://gvqeafgtbpibdyheewdv.supabase.co",
+        SUPABASE_ANON_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd2cWVhZmd0YnBpYmR5aGVld2R2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE2MDEzMzIsImV4cCI6MjA4NzE3NzMzMn0.KP9XZeXHMfD2ENGRH-yD81oCfpUcqmi_EHzf3mshpN8",
+      };
+    </script>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
